@@ -11,11 +11,11 @@ namespace myun2
 		struct string_with
 		{
 			template <typename _Iterator>
-			::std::string parse(_Iterator i) const {
+			::std::string parse(_Iterator& i) const {
 				::std::string s;
-				while(*i == _End || *i == '\0') {
-					i++;
+				while(*i != _End && *i != '\0') {
 					s += *i;
+					i++;
 				}
 				return s;
 			}

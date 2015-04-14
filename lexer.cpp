@@ -13,6 +13,15 @@ struct strings_document
 	const ::std::string& operator [] (unsigned int i) const { return l[i]; }
 };
 
+struct string_iterator
+{
+	const char* p;
+	string_iterator(const char *p_) : p(p_) {}
+	const char* operator ++(int) { return p++; }
+	const char* operator ++() { return ++p; }
+	char operator *() const { return *p; }
+};
+
 using namespace myun2::lexical;
 
 typedef sequence<char_<'A'>, char_<'B'>, char_<'C'> > ABC;;
@@ -20,6 +29,7 @@ typedef sequence<
 	//string_with<char_<':' > >,
 	//string_with<char_<'\0'> >
 	string_with<':'>,
+	char_<':' >,
 	string_with<'\0'>
 > coron_divided;
 
@@ -29,7 +39,8 @@ int main()
 	//printf("%d\n", abc.parse<strings_document>("ABC"));
 	//printf("%d\n", abc.parse<strings_document>("AFZ"));
 
-	strings_document result = coron_divided().parse<strings_document>("ABC:DEF");
+	string_iterator si("ABC:DEF");
+	strings_document result = coron_divided().parse<strings_document>(si);
 	printf("%s\n", result[0].c_str());
 	printf("%s\n", result[1].c_str());
 

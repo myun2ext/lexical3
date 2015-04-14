@@ -8,7 +8,7 @@ namespace myun2
 		template <char C>
 		struct char_ {
 			template <typename _Iterator>
-			char parse(_Iterator i) const { return *(i++) == C ? C : '\0'; }
+			char parse(_Iterator& i) const { return *(i++) == C ? C : '\0'; }
 		};
 
 		typedef char_<' '> space_char;
