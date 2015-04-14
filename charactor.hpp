@@ -10,11 +10,6 @@ namespace myun2
 			template <typename _Iterator>
 			char parse(_Iterator& i) const { return *(i++) == C ? C : '\0'; }
 		};
-
-		typedef char_<' '> space_char;
-		typedef char_<'\t'> tab_char;
-		typedef char_<'\r'> cr_char;
-		typedef char_<'\n'> lf_char;
 	}
 }
 
