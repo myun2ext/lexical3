@@ -1,6 +1,9 @@
 #ifndef __MYUN2__LEXICAL__LEXER__HPP__
 #define __MYUN2__LEXICAL__LEXER__HPP__
 
+#include "string.hpp"
+#include "utils.hpp"
+
 namespace myun2
 {
 	namespace lexical
@@ -20,7 +23,9 @@ namespace myun2
 			typename T7 = null_type,
 			typename T8 = null_type,
 			typename T9 = null_type,
-			typename T10 = null_type>
+			typename T10 = null_type,
+			typename T11 = null_type,
+			typename T12 = null_type>
 
 		struct sequence
 		{
@@ -34,6 +39,8 @@ namespace myun2
 			const T8 p8;
 			const T9 p9;
 			const T10 p10;
+			const T11 p11;
+			const T12 p12;
 
 			sequence(
 				const T1& t1 = T1(),
@@ -45,7 +52,9 @@ namespace myun2
 				const T7& t7 = T7(),
 				const T8& t8 = T8(),
 				const T9& t9 = T9(),
-				const T10& t10 = T10() ) :
+				const T10& t10 = T10(),
+				const T11& t11 = T11(),
+				const T12& t12 = T12() ) :
 				p1(t1),
 				p2(t2),
 				p3(t3),
@@ -55,21 +64,28 @@ namespace myun2
 				p7(t7),
 				p8(t8),
 				p9(t9),
-				p10(t10) {}
+				p10(t10),
+				p11(t11),
+				p12(t12) {}
 
-			template <typename _Document, typename _Input>
-			_Document parse(_Input& p) {
-				_Document doc;
-				if ( !(doc << p1.parse(p) )) return doc;
-				if ( !(doc << p2.parse(p) )) return doc;
-				if ( !(doc << p3.parse(p) )) return doc;
-				if ( !(doc << p4.parse(p) )) return doc;
-				if ( !(doc << p5.parse(p) )) return doc;
-				if ( !(doc << p6.parse(p) )) return doc;
-				if ( !(doc << p7.parse(p) )) return doc;
-				if ( !(doc << p8.parse(p) )) return doc;
-				if ( !(doc << p9.parse(p) )) return doc;
-				if ( !(doc << p10.parse(p) )) return doc;
+			result parse(const char* s)
+			{
+				string_iterator si(s);
+				result doc;
+
+				if ( !(doc << p1.parse(si) )) return doc;
+				if ( !(doc << p2.parse(si) )) return doc;
+				if ( !(doc << p3.parse(si) )) return doc;
+				if ( !(doc << p4.parse(si) )) return doc;
+				if ( !(doc << p5.parse(si) )) return doc;
+				if ( !(doc << p6.parse(si) )) return doc;
+				if ( !(doc << p7.parse(si) )) return doc;
+				if ( !(doc << p8.parse(si) )) return doc;
+				if ( !(doc << p9.parse(si) )) return doc;
+				if ( !(doc << p10.parse(si) )) return doc;
+				if ( !(doc << p11.parse(si) )) return doc;
+				if ( !(doc << p12.parse(si) )) return doc;
+
 				return doc;
 			}
 		};
