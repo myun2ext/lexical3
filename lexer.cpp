@@ -1,5 +1,5 @@
 #include "lexer.hpp"
-#include "parser.hpp"
+#include "charactor.hpp"
 #include "string.hpp"
 #include <stdio.h>
 #include <string>
@@ -33,6 +33,7 @@ typedef sequence<
 int main()
 {
 	string_iterator si("ABC:DEF");
+
 	strings_document result = coron_divided().parse<strings_document>(si);
 	printf("%s\n", result[0].c_str());
 	printf("%s\n", result[1].c_str());
