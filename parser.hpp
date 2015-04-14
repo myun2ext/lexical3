@@ -7,8 +7,8 @@ namespace myun2
 	{
 		template <typename _document, typename _Syntax, typename _Input>
 		_document parse(_Input p) {
-			while(p++) {
-			}
+			_Syntax syntax;
+			while(p++) { syntax.eat(*p); }
 		};
 	}
 }

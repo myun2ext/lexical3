@@ -102,6 +102,11 @@ namespace myun2
 				p20(t20),
 				p21(t21),
 				p22(t22) {}
+
+			template <typename _document, typename _Input>
+			void match(_document& doc, _Input p)
+			{
+			}
 		};
 	}
 }

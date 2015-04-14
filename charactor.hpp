@@ -12,6 +12,12 @@ namespace myun2
 		typedef char_<'\t'> tab_char;
 		typedef char_<'\r'> cr_char;
 		typedef char_<'\n'> lf_char;
+
+		template <typename _document, char C, typename _Input>
+		_document& parse<_document, char_<C>, _Input> (_document& doc, const char_<C> c, _Input p) {
+			doc << C == *p;
+			return doc;
+		}
 	}
 }
 
