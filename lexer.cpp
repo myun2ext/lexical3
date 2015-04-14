@@ -4,6 +4,10 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
+#include <memory.h>
+#include <time.h>
+
+static const int test_buffer_size = 1024 * 1024 * 1024;
 
 struct strings_document
 {
@@ -39,10 +43,18 @@ int main()
 	//printf("%d\n", abc.parse<strings_document>("ABC"));
 	//printf("%d\n", abc.parse<strings_document>("AFZ"));
 
-	string_iterator si("ABC:DEF");
+	char *buffer = new char[test_buffer_size];
+	memset(buffer, 'A', test_buffer_size / 2);
+	memset(buffer + test_buffer_size / 2, 'B', test_buffer_size / 2);
+	buffer[test_buffer_size / 2] = ':';
+	printf("Start. %d\n", clock());
+
+	//string_iterator si("ABC:DEF");
+	string_iterator si(buffer);
 	strings_document result = coron_divided().parse<strings_document>(si);
-	printf("%s\n", result[0].c_str());
-	printf("%s\n", result[1].c_str());
+	//printf("%s\n", result[0].c_str());
+	//printf("%s\n", result[1].c_str());
+	printf("End. %d\n", clock());
 
 	return 0;
 }
