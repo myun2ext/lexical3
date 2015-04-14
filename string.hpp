@@ -7,13 +7,19 @@ namespace myun2
 {
 	namespace lexical
 	{
-		template <char _End>
+		template <char C>
+		struct char_ {
+			template <typename _Iterator>
+			char parse(_Iterator& i) const { return *(i++) == C ? C : '\0'; }
+		};
+
+		template <char _Terminator>
 		struct string_with
 		{
 			template <typename _Iterator>
 			::std::string parse(_Iterator& i) const {
 				::std::string s;
-				while(*i != _End && *i != '\0') {
+				while(*i != _Terminator && *i != '\0') {
 					s += *i;
 					i++;
 				}

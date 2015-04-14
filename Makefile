@@ -1,2 +1,2 @@
 all:
-	g++ -O3 -o lexer -I../../ lexer.cpp
+	g++ -O3 -o lexical_example example.cpp
