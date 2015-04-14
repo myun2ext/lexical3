@@ -1,6 +1,8 @@
 #ifndef __MYUN2__LEXICAL__SEQUENCE__HPP__
 #define __MYUN2__LEXICAL__SEQUENCE__HPP__
 
+#include "myun2/lexical3/charactor.hpp"
+
 namespace myun2
 {
 	namespace lexical
@@ -100,7 +102,18 @@ namespace myun2
 				p20(t20),
 				p21(t21),
 				p22(t22) {}
+
+			template <typename _Document, typename _Input>
+			_Document parse(_Document& doc, _Input p) {
+				if ( !(doc << p1.parse(p++) )) return doc;
+				if ( !(doc << p2.parse(p++) )) return doc;
+				return doc;
+			}
 		};
+
+		/*template <typename _Document, typename _Syntax, typename _Input>
+		_Document parse(_Input p) {
+			return parse(_Document(), _Syntax(), p); }*/
 	}
 }
 
