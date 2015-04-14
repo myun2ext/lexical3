@@ -8,7 +8,7 @@ namespace myun2
 		template <char C>
 		struct char_ {
 			typedef bool _Result;
-			template <typename _Input> bool parse(_Input p) { return *p == C; }
+			bool parse(char c) { return c == C; }
 		};
 
 		typedef char_<' '> space_char;
