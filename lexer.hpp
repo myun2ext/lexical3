@@ -106,10 +106,10 @@ namespace myun2
 			template <typename _Document, typename _Input>
 			_Document parse(_Input p) {
 				_Document doc;
-				if ( !(doc << p1.parse(p) )) return false;
-				if ( !(doc << p2.parse(p) )) return false;
-				if ( !(doc << p3.parse(p) )) return false;
-				return true;
+				if ( !(doc << p1.parse(p) )) return doc;
+				if ( !(doc << p2.parse(p) )) return doc;
+				//if ( !(doc << p3.parse(p) )) return doc;
+				return doc;
 			}
 		};
 	}

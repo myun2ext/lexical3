@@ -7,7 +7,7 @@ namespace myun2
 {
 	namespace lexical
 	{
-		template <typename _End>
+		template <char _End>
 		struct string_with
 		{
 			template <typename _Iterator>
