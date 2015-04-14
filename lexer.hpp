@@ -1,6 +1,8 @@
 #ifndef __MYUN2__LEXICAL__SEQUENCE__HPP__
 #define __MYUN2__LEXICAL__SEQUENCE__HPP__
 
+#include "myun2/lexical3/charactor.hpp"
+
 namespace myun2
 {
 	namespace lexical

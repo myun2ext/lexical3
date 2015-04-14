@@ -1,2 +1,2 @@
 all:
-	g++ -O3 -o lexer lexer.cpp
+	g++ -O3 -o lexer -I../../ lexer.cpp

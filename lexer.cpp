@@ -2,7 +2,7 @@
 
 using namespace myun2::lexical;
 
-typedef sequence<char, char, char> ABC;
+typedef sequence<char_<'A'>, char_<'B'>, char_<'C'> > ABC;
 
 int main()
 {
