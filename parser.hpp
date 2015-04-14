@@ -5,11 +5,9 @@ namespace myun2
 {
 	namespace lexical
 	{
-		template <typename _document, typename _Syntax, typename _Input>
-		_document parse(_Input p) {
-			_Syntax syntax;
-			while(p++) { syntax.eat(*p); }
-		};
+		template <typename _Document, typename _Syntax, typename _Input>
+		_Document parse(_Input p) {
+			return parse(_Document(), _Syntax(), p); }
 	}
 }
 
