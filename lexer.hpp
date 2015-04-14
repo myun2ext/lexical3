@@ -103,11 +103,12 @@ namespace myun2
 				p21(t21),
 				p22(t22) {}
 
-			template <typename _Input>
-			bool parse(_Input p) {
-				if ( !(p1.parse(*(p++)) )) return false;
-				if ( !(p2.parse(*(p++)) )) return false;
-				if ( !(p3.parse(*(p++)) )) return false;
+			template <typename _Document, typename _Input>
+			_Document parse(_Input p) {
+				_Document doc;
+				if ( !(doc << p1.parse(p) )) return false;
+				if ( !(doc << p2.parse(p) )) return false;
+				if ( !(doc << p3.parse(p) )) return false;
 				return true;
 			}
 		};
