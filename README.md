@@ -6,20 +6,24 @@
 
 ```cpp
 #include "lexer.hpp"
+#include "string.hpp"
+#include "utils.hpp"
 #include <stdio.h>
 
 using namespace myun2::lexical;
 
 typedef sequence<
 	string_with<':'>,
-	char_<':' >,
+	char_<':'>,
 	string_with<'\0'>
-> example_parser;
+> colon_cutter;
 
 int main()
 {
-	example_parser parser;
-	result r = parser.parse("ABC:DEF");
+	string_list_document r;
+	colon_cutter cc;
+	cc.parse(r, string_iterator("ABC:DEF"));
+
 	printf("%s\n", r[0].c_str());
 	printf("%s\n", r[1].c_str());
 

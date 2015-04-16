@@ -1,16 +1,13 @@
 #ifndef __MYUN2__LEXICAL__LEXER__HPP__
 #define __MYUN2__LEXICAL__LEXER__HPP__
 
-#include "string.hpp"
-#include "utils.hpp"
-
 namespace myun2
 {
 	namespace lexical
 	{
 		struct empty_token {
-			template <typename _Iterator>
-			bool parse(_Iterator& i) const { return true; }
+			template <typename _Document, typename _Iterator>
+			_Iterator parse(const _Document& doc, const _Iterator& i) const { return i; }
 		};
 
 		template <
@@ -29,7 +26,8 @@ namespace myun2
 			typename T13 = empty_token,
 			typename T14 = empty_token,
 			typename T15 = empty_token,
-			typename T16 = empty_token>
+			typename T16 = empty_token,
+			typename T17 = empty_token>
 
 		struct sequence
 		{
@@ -49,6 +47,7 @@ namespace myun2
 			const T14 p14;
 			const T15 p15;
 			const T16 p16;
+			const T17 p17;
 
 			sequence(
 				const T1& t1 = T1(),
@@ -66,7 +65,8 @@ namespace myun2
 				const T13& t13 = T13(),
 				const T14& t14 = T14(),
 				const T15& t15 = T15(),
-				const T16& t16 = T16() ) :
+				const T16& t16 = T16(),
+				const T17& t17 = T17() ) :
 				p1(t1),
 				p2(t2),
 				p3(t3),
@@ -82,31 +82,20 @@ namespace myun2
 				p13(t13),
 				p14(t14),
 				p15(t15),
-				p16(t16) {}
+				p16(t16),
+				p17(t17) {}
 
-			result parse(const char* s)
+			template <typename _Document, typename _Iterator>
+			_Iterator parse(_Document& doc, _Iterator i) const
 			{
-				string_iterator si(s);
-				result doc;
-
-				if ( !(doc << p1.parse(si) )) return doc;
-				if ( !(doc << p2.parse(si) )) return doc;
-				if ( !(doc << p3.parse(si) )) return doc;
-				if ( !(doc << p4.parse(si) )) return doc;
-				if ( !(doc << p5.parse(si) )) return doc;
-				if ( !(doc << p6.parse(si) )) return doc;
-				if ( !(doc << p7.parse(si) )) return doc;
-				if ( !(doc << p8.parse(si) )) return doc;
-				if ( !(doc << p9.parse(si) )) return doc;
-				if ( !(doc << p10.parse(si) )) return doc;
-				if ( !(doc << p11.parse(si) )) return doc;
-				if ( !(doc << p12.parse(si) )) return doc;
-				if ( !(doc << p13.parse(si) )) return doc;
-				if ( !(doc << p14.parse(si) )) return doc;
-				if ( !(doc << p15.parse(si) )) return doc;
-				if ( !(doc << p16.parse(si) )) return doc;
-
-				return doc;
+				i = p1.parse(doc, i); if ( i.is_invalid() ) return i;
+				i = p2.parse(doc, i); if ( i.is_invalid() ) return i;
+				i = p3.parse(doc, i); if ( i.is_invalid() ) return i;
+				i = p4.parse(doc, i); if ( i.is_invalid() ) return i;
+				i = p5.parse(doc, i); if ( i.is_invalid() ) return i;
+				i = p6.parse(doc, i); if ( i.is_invalid() ) return i;
+				i = p7.parse(doc, i); if ( i.is_invalid() ) return i;
+				return i;
 			}
 		};
 	}
