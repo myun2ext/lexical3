@@ -8,24 +8,28 @@ namespace myun2
 {
 	namespace lexical
 	{
-		struct null_type {
+		struct empty_token {
 			template <typename _Iterator>
 			bool parse(_Iterator& i) const { return true; }
 		};
 
 		template <
-			typename T1 = null_type,
-			typename T2 = null_type,
-			typename T3 = null_type,
-			typename T4 = null_type,
-			typename T5 = null_type,
-			typename T6 = null_type,
-			typename T7 = null_type,
-			typename T8 = null_type,
-			typename T9 = null_type,
-			typename T10 = null_type,
-			typename T11 = null_type,
-			typename T12 = null_type>
+			typename T1 = empty_token,
+			typename T2 = empty_token,
+			typename T3 = empty_token,
+			typename T4 = empty_token,
+			typename T5 = empty_token,
+			typename T6 = empty_token,
+			typename T7 = empty_token,
+			typename T8 = empty_token,
+			typename T9 = empty_token,
+			typename T10 = empty_token,
+			typename T11 = empty_token,
+			typename T12 = empty_token,
+			typename T13 = empty_token,
+			typename T14 = empty_token,
+			typename T15 = empty_token,
+			typename T16 = empty_token>
 
 		struct sequence
 		{
@@ -41,6 +45,10 @@ namespace myun2
 			const T10 p10;
 			const T11 p11;
 			const T12 p12;
+			const T13 p13;
+			const T14 p14;
+			const T15 p15;
+			const T16 p16;
 
 			sequence(
 				const T1& t1 = T1(),
@@ -54,7 +62,11 @@ namespace myun2
 				const T9& t9 = T9(),
 				const T10& t10 = T10(),
 				const T11& t11 = T11(),
-				const T12& t12 = T12() ) :
+				const T12& t12 = T12(),
+				const T13& t13 = T13(),
+				const T14& t14 = T14(),
+				const T15& t15 = T15(),
+				const T16& t16 = T16() ) :
 				p1(t1),
 				p2(t2),
 				p3(t3),
@@ -66,7 +78,11 @@ namespace myun2
 				p9(t9),
 				p10(t10),
 				p11(t11),
-				p12(t12) {}
+				p12(t12),
+				p13(t13),
+				p14(t14),
+				p15(t15),
+				p16(t16) {}
 
 			result parse(const char* s)
 			{
@@ -85,6 +101,10 @@ namespace myun2
 				if ( !(doc << p10.parse(si) )) return doc;
 				if ( !(doc << p11.parse(si) )) return doc;
 				if ( !(doc << p12.parse(si) )) return doc;
+				if ( !(doc << p13.parse(si) )) return doc;
+				if ( !(doc << p14.parse(si) )) return doc;
+				if ( !(doc << p15.parse(si) )) return doc;
+				if ( !(doc << p16.parse(si) )) return doc;
 
 				return doc;
 			}

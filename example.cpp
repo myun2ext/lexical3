@@ -5,7 +5,7 @@ using namespace myun2::lexical;
 
 typedef sequence<
 	string_with<':'>,
-	char_<':' >,
+	char_<':'>,
 	string_with<'\0'>
 > example_parser;
 
