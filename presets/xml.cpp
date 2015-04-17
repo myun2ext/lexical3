@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include "presets/xml.hpp"
+#include "presets/xml/rule.hpp"
+#include "presets/xml/dom.hpp"
 
 using namespace myun2::lexical::xml;
 

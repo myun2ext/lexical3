@@ -14,7 +14,7 @@ namespace myun2
 		namespace xml
 		{
 			struct rule {
-			}
+			};
 		}
 	}
 }
