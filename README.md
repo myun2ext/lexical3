@@ -1,6 +1,6 @@
 # lexical3
 
-**lexical3** は非常にシンプルな簡易パーサです。
+**lexical3** is simple parser.
 
 ## Usage
 
@@ -33,12 +33,12 @@ int main()
 
 ### sequence
 
-パーサを定義します。(テンプレートパラメータにより)
+Sequencial tokens definition. token specify in *template parameters*.
 
 ### string_with
 
-テンプレートパラメータに指定される文字までの文字列を読み込みます
+**Any string** with terminator token specify in *template parameter*.
 
 ### char_
 
-何らかのキャラ(区切り文字等)
+**Constant charactor** with *template parameter*.
