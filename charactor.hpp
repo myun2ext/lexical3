@@ -30,6 +30,7 @@ namespace myun2
 		typedef char_<'\r'> cr_char;
 		typedef char_<'\n'> lf_char;
 		typedef or_<space_char, tab_char, cr_char, lf_char> whitespace;
+		typedef repeat<whitespace> whitespaces;
 	}
 }
 
