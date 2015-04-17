@@ -13,8 +13,10 @@ namespace myun2
 	{
 		namespace xml
 		{
-			struct rule {
-			};
+			namespace rule_
+			{
+				typedef sequence<char_<'<'>, string_with<char_<'>'>, char_<'>'> > tag;
+			}
 		}
 	}
 }
