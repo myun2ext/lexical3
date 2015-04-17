@@ -10,6 +10,10 @@ namespace myun2
 			_Iterator parse(const _Document& doc, const _Iterator& i) const { return i; }
 		};
 
+		template <typename T>
+		struct is_empty_token { static const bool value = false; };
+		template <> struct is_empty_token<empty_token> { static const bool value = true; };
+
 		template <
 			typename T1 = empty_token,
 			typename T2 = empty_token,

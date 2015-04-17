@@ -16,6 +16,7 @@ namespace myun2
 			const char* operator ++() { return ++p; }
 			char operator *() const { return *p; }
 			bool is_invalid() const { return p == 0; }
+			bool is_valid() const   { return !is_invalid(); }
 
 			static string_iterator invalid(){ return string_iterator(0); }
 		};
